@@ -1,0 +1,20 @@
+[
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Stock Reconciliation", 
+  "modified": "2015-12-18 10:01:02.358543", 
+  "name": "Stock Reconciliation-Client", 
+  "script": "cur_frm.add_fetch('item_code','item_name','item_name');", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Sales Invoice", 
+  "modified": "2016-01-08 23:47:49.826699", 
+  "name": "Sales Invoice-Client", 
+  "script": "\ncur_frm.cscript.grand_total=function (){msgprint(\"called\");};\n/**\nerpnext.pos.PointOfSale.set_totals = function() {\n\t\tmsgprint(\"called\");\n\t};\n\nfrappe.ui.form.on(\"Sales Invoice\", {\n    base_grand_total: function(frm) {\n        msgprint(\"called\");\n    }\n});\n\nvar me = this;\n\t\tthis.frm.call({\n\t\t\tmethod: \"addons.addons.doctype.on_total_pricing_rule.on_total_pricing_rule.calculate_discount\",\n\t\t\targs: {\targs: this },\n\t\t\tcallback: function(r) {\n\t\t\t\tif (!r.exc && r.message) {\n\t\t\t\t\tme.discount_amount=r.message;\n\t\t\t\t\trefresh_field(\"discount_amount\");\n\t\t\t\t}\n\t\t\t}\n\t\t});\n**/", 
+  "script_type": "Client"
+ }
+]

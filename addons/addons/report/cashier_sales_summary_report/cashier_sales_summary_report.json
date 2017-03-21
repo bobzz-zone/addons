@@ -1,0 +1,20 @@
+{
+ "add_total_row": 0, 
+ "apply_user_permissions": 0, 
+ "creation": "2016-02-01 15:57:52.006092", 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "javascript": "frappe.query_reports[\"Cashier Cash Summary Report\"] = {\n\t\"filters\": [\n\t\t{\n\t\t\t\"fieldname\":\"from\",\n\t\t\t\"label\": \"From\",\n\t\t\t\"fieldtype\": \"Date\",\n\t\t\t\"default\": get_today(),\n\t\t\t\"reqd\": 1\n\t\t},{\n\t\t\t\"fieldname\":\"to\",\n\t\t\t\"label\": \"From\",\n\t\t\t\"fieldtype\": \"Date\",\n\t\t\t\"default\": get_today(),\n\t\t\t\"reqd\": 1\n\t\t}\n]\n}", 
+ "modified": "2016-02-01 15:57:52.006092", 
+ "modified_by": "Administrator", 
+ "module": "Addons", 
+ "name": "Cashier Sales Summary Report", 
+ "owner": "Administrator", 
+ "query": "Select \nsi.letter_head as \"POS:Data:150\",\nsi.owner as \"Cashier:Data:150\",\nsum(sit.qty) as \"Total Qty:Int:150\",\nsum(sit.net_amount) as \"Total Sales Cash:Currency:300\"\nfrom `tabSales Invoice Item` sit join `tabSales Invoice` si on sit.parent=si.name where si.is_pos=1 and si.docstatus=1 and si.posting_date between %(from)s and %(to)s \ngroup by si.owner\n", 
+ "ref_doctype": "POS Cash", 
+ "report_name": "Cashier Sales Summary Report", 
+ "report_type": "Query Report"
+}

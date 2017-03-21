@@ -1,0 +1,20 @@
+{
+ "add_total_row": 1, 
+ "apply_user_permissions": 0, 
+ "creation": "2016-01-06 15:37:30.133763", 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "javascript": "", 
+ "modified": "2016-01-31 12:22:03.024624", 
+ "modified_by": "Administrator", 
+ "module": "Addons", 
+ "name": "Sales Commision Report", 
+ "owner": "Administrator", 
+ "query": "", 
+ "ref_doctype": "POS Cash", 
+ "report_name": "Sales Commision Report", 
+ "report_type": "Script Report"
+}

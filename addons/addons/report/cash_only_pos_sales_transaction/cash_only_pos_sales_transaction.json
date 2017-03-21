@@ -1,0 +1,20 @@
+{
+ "add_total_row": 1, 
+ "apply_user_permissions": 0, 
+ "creation": "2016-01-05 21:50:17.082324", 
+ "disabled": 1, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "javascript": "frappe.query_reports[\"Cash Only POS Sales Transaction\"] = {\n\t\"filters\": [\n\t\t{\n\t\t\t\"fieldname\":\"date\",\n\t\t\t\"label\": \"Date\",\n\t\t\t\"fieldtype\": \"Date\",\n\t\t\t\"default\": get_today(),\n\t\t\t\"reqd\": 1\n\t\t},\n\t\t{\n\t\t\t\"fieldname\":\"user\",\n\t\t\t\"label\": \"User\",\n\t\t\t\"fieldtype\": \"Link\",\n\t\t\t\"options\": \"POS Profile\",\n\t\t\t\"reqd\": 1\n\t\t},\n\t\t{\n\t\t\t\"fieldname\":\"mode\",\n\t\t\t\"label\": \"Payment Mode\",\n\t\t\t\"fieldtype\": \"Link\",\n\t\t\t\"options\": \"Mode of Payment\",\n\t\t\t\"reqd\": 1\n\t\t}\n]\n}", 
+ "modified": "2016-03-15 08:10:27.036029", 
+ "modified_by": "Administrator", 
+ "module": "Addons", 
+ "name": "Cash Only POS Sales Transaction", 
+ "owner": "Administrator", 
+ "query": "Select \nsi.customer as \"Customer:Data:300\",\nsi.letter_head as \"POS:Data:150\",\nsum(sit.qty) as \"Total Qty:Int:50\",\nsum(sit.net_amount) as \"Total:Currency:300\"\nfrom `tabSales Invoice Item` sit join `tabSales Invoice` si on sit.parent=si.name where si.is_pos=1 and si.docstatus=1 and si.posting_date = %(date)s and si.owner = %(user)s and si.mode_of_payment=%(mode)s group by si.customer,si.letter_head\n", 
+ "ref_doctype": "POS Shift Daily Reports", 
+ "report_name": "Cash Only POS Sales Transaction", 
+ "report_type": "Query Report"
+}
